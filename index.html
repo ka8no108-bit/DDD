@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化祭 参考資料コレクション</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: M PLUS Rounded 1c -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"M PLUS Rounded 1c"', 'sans-serif'],
+                    },
+                    colors: {
+                        fes: {
+                            pink: '#ff6b95',
+                            yellow: '#ffd93d',
+                            blue: '#4d96ff',
+                            purple: '#9b5de5',
+                            mint: '#00bbf9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fce7f3 0%, #e0f2fe 50%, #fef3c7 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .festive-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+</head>
+<body class="text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-pink-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-fes-pink to-fes-purple text-white p-3 rounded-2xl shadow-md rotate-3">
+                    <i class="fa-solid fa-book-bookmark text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-fes-purple bg-purple-100 px-2 py-0.5 rounded-full">School Festival 2026</span>
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-gray-800 tracking-tight">文化祭 参考資料ライブラリー</h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                <div class="relative flex-1 sm:w-60">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                        <i class="fa-solid fa-search"></i>
+                    </span>
+                    <input type="text" id="searchInput" placeholder="資料をキーワード検索..." class="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-fes-pink focus:bg-white transition-all">
+                </div>
+                <button id="viewToggle" class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-2.5 rounded-full transition-colors flex items-center justify-center w-10 h-10 shrink-0" title="表示切り替え">
+                    <i class="fa-solid fa-list-ul" id="viewIcon"></i>
+                </button>
+                <button onclick="handleAdminButtonClick()" id="adminBtn" class="bg-gradient-to-r from-fes-purple to-fes-pink text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-md hover:opacity-90 transition-opacity flex items-center gap-2 shrink-0">
+                    <i class="fa-solid fa-lock" id="adminIcon"></i>
+                    <span id="adminBtnText">管理者モード</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">
+        <!-- Hero Banner -->
+        <div class="bg-gradient-to-r from-fes-pink via-fes-purple to-fes-blue rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-10 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="relative z-10 max-w-2xl">
+                <span class="bg-white/20 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Research & References</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-2 leading-tight">私たちが調べた、学びの足跡</h2>
+                <p class="text-pink-100 text-sm sm:text-base leading-relaxed">
+                    文化祭の展示・発表にあたって参考にさせていただいた公式資料、歴史、および行政発行の特設ドキュメントの一覧です。
+                </p>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-tag text-fes-yellow"></i> 総合的な探究の時間
+                    </span>
+                    <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-location-dot text-fes-mint"></i> 香川県・坂出市
+                    </span>
+                    <span class="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-file-pdf text-fes-yellow"></i> 外部リンク・PDF資料
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Control Panel (Hidden by default) -->
+        <div id="adminPanel" class="hidden bg-white border-2 border-fes-purple/40 rounded-3xl p-6 mb-8 shadow-lg">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-gray-100">
+                <div>
+                    <span class="bg-purple-100 text-fes-purple text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-shield-halved mr-1"></i> 管理モード作動中</span>
+                    <h3 class="text-xl font-extrabold text-gray-800 mt-1">資料の追加・管理・GitHub用エクスポート</h3>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="openAddModal()" class="bg-fes-purple hover:bg-purple-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> 新規資料を追加
+                    </button>
+                    <button onclick="openExportModal()" class="bg-fes-blue hover:bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-code"></i> GitHub用データ出力
+                    </button>
+                    <button onclick="exitAdminMode()" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-bold px-4 py-2.5 rounded-xl transition-colors flex items-center gap-2" title="管理モードを終了して退出">
+                        <i class="fa-solid fa-right-from-bracket"></i> 管理画面から退出
+                    </button>
+                </div>
+            </div>
+            <p class="text-xs text-gray-500">
+                ※ 追加・削除したデータはブラウザに記憶されます。GitHub Pages等で公開している場合は、「GitHub用データ出力」からコードをコピーしてソースファイルを更新してください。
+            </p>
+        </div>
+
+        <!-- Resource Container -->
+        <div id="resourceContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards rendered dynamically via JS -->
+        </div>
+
+        <!-- No results message -->
+        <div id="noResults" class="hidden text-center py-16">
+            <div class="text-5xl mb-3 text-gray-300"><i class="fa-solid fa-face-confused"></i></div>
+            <p class="text-gray-500 font-bold">該当する参考資料が見つかりませんでした。</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 border-t border-purple-100 mt-12 py-6 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p>© 2026 文化祭105HR3班. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <button onclick="resetToDefaultData()" class="text-gray-400 hover:text-red-500 transition-colors text-xs underline">初期データにリセット</button>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-sparkles text-fes-yellow"></i> 学びと感動を形に</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="loginModalBox">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-extrabold text-gray-800">管理者ログイン</h3>
+                <button onclick="closeAdminLoginModal()" class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="text-gray-600 text-xs mb-4">資料の追加・削除を行うには、管理者パスワードを入力してください。</p>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">管理者パスワード</label>
+                    <input type="password" id="adminPasswordInput" placeholder="パスワードを入力" required class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-fes-purple">
+                </div>
+                <div id="loginErrorMsg" class="text-red-500 text-xs hidden">パスワードが間違っています。</div>
+                <button type="submit" class="w-full bg-gradient-to-r from-fes-purple to-fes-pink text-white font-bold py-3 rounded-xl text-sm shadow-md hover:opacity-95 transition-opacity">
+                    ログインする
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Resource Modal -->
+    <div id="resourceModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="resourceModalBox">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-extrabold text-gray-800">新規参考資料の追加</h3>
+                <button onclick="closeResourceModal()" class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form onsubmit="handleSaveResource(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">資料タイトル</label>
+                    <input type="text" id="resTitle" placeholder="例: 坂出市公式観光サイト" required class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-fes-purple">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">URL</label>
+                    <input type="url" id="resUrl" placeholder="https://example.com" required class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-fes-purple">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">カテゴリー（タグ）</label>
+                    <input type="text" id="resCategory" placeholder="例: 公式サイト / 統計資料 / Wikipedia" required class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-fes-purple">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">説明・メモ</label>
+                    <textarea id="resDesc" rows="3" placeholder="文化祭のどの展示や調査の際に参考にしたか簡単に記載..." class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-fes-purple resize-none"></textarea>
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeResourceModal()" class="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-xs rounded-xl transition-colors">キャンセル</button>
+                    <button type="submit" class="px-5 py-2.5 bg-fes-purple hover:bg-purple-700 text-white font-bold text-xs rounded-xl shadow transition-colors">追加する</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- GitHub Export Modal -->
+    <div id="exportModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="exportModalBox">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-extrabold text-gray-800">GitHub用データ出力・同期</h3>
+                <button onclick="closeExportModal()" class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-600 mb-3">
+                追加・削除した最新の資料データをGitHubリポジトリ（index.html）の初期データ配列に永続反映させるには、以下のJSONデータをコピーしてコード内の <code class="bg-gray-100 px-1 py-0.5 rounded font-mono text-fes-purple">defaultResources</code> 配列に貼り付けてください。
+            </p>
+            <div class="relative mb-4">
+                <textarea id="exportJsonText" readonly rows="8" class="w-full p-3 font-mono text-xs bg-gray-900 text-green-400 rounded-xl focus:outline-none"></textarea>
+            </div>
+            <div class="flex justify-between items-center">
+                <span id="copySuccessMsg" class="text-xs text-emerald-600 font-bold hidden"><i class="fa-solid fa-check mr-1"></i> クリップボードにコピーしました！</span>
+                <div class="flex gap-2 ml-auto">
+                    <button onclick="copyExportJson()" class="px-4 py-2.5 bg-fes-purple hover:bg-purple-700 text-white font-bold text-xs rounded-xl shadow transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-copy"></i> コードをコピー
+                    </button>
+                    <button onclick="closeExportModal()" class="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold text-xs rounded-xl transition-colors">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Default resources requested by user
+        const defaultResources = [
+            {
+                id: 1,
+                title: "坂出市公式サイト（観光・行政情報）",
+                url: "https://www.kagawa-edu.jp/sakash01/",
+                category: "公式サイト",
+                description: "香川県坂出市の教育・地域情報に関する総合ポータルサイト。地域の基本調査に活用しました。"
+            },
+            {
+                id: 2,
+                title: "香川県立坂出商業高等学校 - Wikipedia",
+                url: "https://ja.wikipedia.org/wiki/%E9%A6%99%E5%B7%9D%E7%9C%8C%E7%AB%8B%E5%9D%82%E5%87%BA%E5%95%86%E6%A5%AD%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1",
+                category: "Wikipedia",
+                description: "学校の沿革、歴史、著名な出身者や特色についてまとめられた百科事典ページ。"
+            },
+            {
+                id: 3,
+                title: "香川県特設ガイド・資料PDF (瀬戸内エリア)",
+                url: "https://www.pref.kagawa.lg.jp/documents/16635/2025setouchip31sakasho.pdf",
+                category: "PDF資料",
+                description: "香川県が発行する瀬戸内エリアの魅力や取り組みに関する公式PDFドキュメント。"
+            }
+        ];
+
+        // State variables
+        let resources = [];
+        let isAdmin = false;
+        let isGridView = true;
+        const ADMIN_PASSWORD_CORRECT = "Tcs2026105";
+
+        // Initialize App
+        function initApp() {
+            const saved = localStorage.getItem('fes_resources_2026');
+            if (saved) {
+                try {
+                    resources = JSON.parse(saved);
+                } catch (e) {
+                    resources = defaultResources;
+                }
+            } else {
+                resources = defaultResources;
+            }
+
+            const adminState = localStorage.getItem('fes_is_admin');
+            if (adminState === 'true') {
+                isAdmin = true;
+                showAdminPanel(true);
+            }
+
+            renderResources();
+            updateAdminButtonUI();
+        }
+
+        // Render Resources to DOM
+        function renderResources(filterText = '') {
+            const container = document.getElementById('resourceContainer');
+            const noResults = document.getElementById('noResults');
+            container.innerHTML = '';
+
+            const filtered = resources.filter(item => {
+                const query = filterText.toLowerCase();
+                return item.title.toLowerCase().includes(query) ||
+                       item.description.toLowerCase().includes(query) ||
+                       item.category.toLowerCase().includes(query) ||
+                       item.url.toLowerCase().includes(query);
+            });
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+                container.classList.add('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+                container.classList.remove('hidden');
+            }
+
+            // Update container grid layout based on view mode
+            if (isGridView) {
+                container.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
+            } else {
+                container.className = "flex flex-col gap-4";
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = isGridView 
+                    ? "bg-white rounded-3xl p-6 festive-shadow card-hover flex flex-col justify-between border border-pink-50 relative group"
+                    : "bg-white rounded-2xl p-5 festive-shadow card-hover flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border border-pink-50 relative group";
+
+                // Domain extraction for favicon/badge
+                let domain = "";
+                try {
+                    const urlObj = new URL(item.url);
+                    domain = urlObj.hostname;
+                } catch (e) {
+                    domain = "external link";
+                }
+
+                const isPdf = item.url.toLowerCase().endsWith('.pdf') || item.category.includes('PDF');
+                const iconClass = isPdf ? "fa-file-pdf text-red-500" : "fa-globe text-fes-blue";
+
+                card.innerHTML = `
+                    <div class="${isGridView ? 'mb-4' : 'flex-1'}">
+                        <div class="flex justify-between items-start gap-2 mb-2">
+                            <span class="bg-purple-50 text-fes-purple text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-tag"></i> ${escapeHtml(item.category)}
+                            </span>
+                            ${isAdmin ? `
+                                <button onclick="deleteResource(${item.id})" class="text-red-400 hover:text-red-600 bg-red-50 hover:bg-red-100 p-2 rounded-xl transition-colors text-xs" title="この資料を削除">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-gray-800 mb-1.5 leading-snug">
+                            ${escapeHtml(item.title)}
+                        </h3>
+                        <p class="text-xs text-gray-500 line-clamp-2 leading-relaxed mb-3">
+                            ${escapeHtml(item.description || '説明文はありません。')}
+                        </p>
+                        <div class="flex items-center gap-1.5 text-xs text-gray-400 font-mono truncate">
+                            <i class="fa-solid ${iconClass}"></i>
+                            <span class="truncate">${escapeHtml(domain)}</span>
+                        </div>
+                    </div>
+                    <div class="${isGridView ? 'pt-3 border-t border-gray-100 flex items-center justify-between' : 'shrink-0 flex items-center gap-2 w-full sm:w-auto justify-end'}">
+                        <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-gradient-to-r from-fes-purple to-fes-pink hover:opacity-90 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow transition-all flex items-center justify-center gap-2">
+                            <span>資料を開く</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Search listener
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderResources(e.target.value);
+        });
+
+        // View toggle listener
+        document.getElementById('viewToggle').addEventListener('click', () => {
+            isGridView = !isGridView;
+            const icon = document.getElementById('viewIcon');
+            icon.className = isGridView ? "fa-solid fa-list-ul" : "fa-solid fa-grip";
+            renderResources(document.getElementById('searchInput').value);
+        });
+
+        // Admin Button Click Handler
+        function handleAdminButtonClick() {
+            if (isAdmin) {
+                // If already logged in, scroll to admin panel or toggle view
+                const panel = document.getElementById('adminPanel');
+                panel.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                openAdminLoginModal();
+            }
+        }
+
+        // Admin Login Modal controls
+        function openAdminLoginModal() {
+            const modal = document.getElementById('adminLoginModal');
+            const box = document.getElementById('loginModalBox');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                box.classList.remove('scale-95');
+            }, 10);
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('loginErrorMsg').classList.add('hidden');
+            document.getElementById('adminPasswordInput').focus();
+        }
+
+        function closeAdminLoginModal() {
+            const modal = document.getElementById('adminLoginModal');
+            const box = document.getElementById('loginModalBox');
+            modal.classList.add('opacity-0');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Handle Admin Login submission
+        function handleAdminLogin(event) {
+            event.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            if (pass === ADMIN_PASSWORD_CORRECT) {
+                isAdmin = true;
+                localStorage.setItem('fes_is_admin', 'true');
+                closeAdminLoginModal();
+                showAdminPanel(true);
+                renderResources(document.getElementById('searchInput').value);
+                updateAdminButtonUI();
+            } else {
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        // Exit Admin Mode (Logout)
+        function exitAdminMode() {
+            isAdmin = false;
+            localStorage.removeItem('fes_is_admin');
+            showAdminPanel(false);
+            renderResources(document.getElementById('searchInput').value);
+            updateAdminButtonUI();
+        }
+
+        // Show/Hide Admin Panel UI
+        function showAdminPanel(show) {
+            const panel = document.getElementById('adminPanel');
+            if (show) {
+                panel.classList.remove('hidden');
+            } else {
+                panel.classList.add('hidden');
+            }
+        }
+
+        // Update Admin Button appearance
+        function updateAdminButtonUI() {
+            const btn = document.getElementById('adminBtn');
+            const icon = document.getElementById('adminIcon');
+            const text = document.getElementById('adminBtnText');
+            if (isAdmin) {
+                btn.className = "bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-md transition-all flex items-center gap-2 shrink-0";
+                icon.className = "fa-solid fa-shield-halved";
+                text.textContent = "管理者モード中";
+            } else {
+                btn.className = "bg-gradient-to-r from-fes-purple to-fes-pink text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-md hover:opacity-90 transition-opacity flex items-center gap-2 shrink-0";
+                icon.className = "fa-solid fa-lock";
+                text.textContent = "管理者モード";
+            }
+        }
+
+        // Add Resource Modal controls
+        function openAddModal() {
+            const modal = document.getElementById('resourceModal');
+            const box = document.getElementById('resourceModalBox');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                box.classList.remove('scale-95');
+            }, 10);
+            document.getElementById('resTitle').value = '';
+            document.getElementById('resUrl').value = '';
+            document.getElementById('resCategory').value = '';
+            document.getElementById('resDesc').value = '';
+        }
+
+        function closeResourceModal() {
+            const modal = document.getElementById('resourceModal');
+            const box = document.getElementById('resourceModalBox');
+            modal.classList.add('opacity-0');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Save new resource
+        function handleSaveResource(event) {
+            event.preventDefault();
+            const newRes = {
+                id: Date.now(),
+                title: document.getElementById('resTitle').value.trim(),
+                url: document.getElementById('resUrl').value.trim(),
+                category: document.getElementById('resCategory').value.trim(),
+                description: document.getElementById('resDesc').value.trim()
+            };
+
+            resources.unshift(newRes);
+            saveAndRefresh();
+            closeResourceModal();
+        }
+
+        // Delete resource
+        function deleteResource(id) {
+            if (confirm('この参考資料を削除してもよろしいですか？')) {
+                resources = resources.filter(item => item.id !== id);
+                saveAndRefresh();
+            }
+        }
+
+        // Save to LocalStorage & re-render
+        function saveAndRefresh() {
+            localStorage.setItem('fes_resources_2026', JSON.stringify(resources));
+            renderResources(document.getElementById('searchInput').value);
+        }
+
+        // Reset to default data
+        function resetToDefaultData() {
+            if (confirm('すべての資料を初期状態にリセットしますか？追加したカスタム資料は削除されます。')) {
+                resources = [...defaultResources];
+                localStorage.setItem('fes_resources_2026', JSON.stringify(resources));
+                renderResources();
+            }
+        }
+
+        // GitHub Export Modal controls
+        function openExportModal() {
+            const modal = document.getElementById('exportModal');
+            const box = document.getElementById('exportModalBox');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                box.classList.remove('scale-95');
+            }, 10);
+
+            // Format array as clean JS code snippet
+            const jsonString = JSON.stringify(resources, null, 4);
+            document.getElementById('exportJsonText').value = jsonString;
+            document.getElementById('copySuccessMsg').classList.add('hidden');
+        }
+
+        function closeExportModal() {
+            const modal = document.getElementById('exportModal');
+            const box = document.getElementById('exportModalBox');
+            modal.classList.add('opacity-0');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Copy export code
+        function copyExportJson() {
+            const textarea = document.getElementById('exportJsonText');
+            textarea.select();
+            document.execCommand('copy');
+            const msg = document.getElementById('copySuccessMsg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Utility HTML Escape
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        // Run init on window load
+        window.onload = function() {
+            initApp();
+        };
+    </script>
+</body>
+</html>
